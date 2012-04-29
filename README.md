@@ -2,6 +2,8 @@ Technologie NoSQL
 =================
 Repozytorium na potrzeby laboratorium - semestr letni 2012.
 
+-------------------------------------------------------------
+
 * Skrypt ruby zapisujący dane do bazy MongoDB:
 `ruby import2mongo.db [port]`
 
