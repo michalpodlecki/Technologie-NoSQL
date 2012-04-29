@@ -1,6 +1,6 @@
 Technologie NoSQL
 =================
-<<<<<<< HEAD
+
 Repozytorium na potrzeby laboratorium.
 
 ---------------------
