@@ -1,6 +1,6 @@
 Technologie NoSQL
 =================
-Repozytorium na potrzeby laboratorium - semestr letni 2012.
+Repozytorium na potrzeby laboratorium (2012).
 
 --------------------------
 
