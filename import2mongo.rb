@@ -3,7 +3,7 @@ require "json"
 
 if ARGV[0] == "-h" || ARGV[0] == "--help" || ARGV.size == 0 then
   puts "\nWywolanie skryptu:\n"
-  puts "> ruby #{__FILE__} json_file [-p port][ -d database][ -c collection]"
+  puts "  > ruby #{__FILE__} json_file [-p port][ -d database][ -c collection]"
   puts
   exit
 end
