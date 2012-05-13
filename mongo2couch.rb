@@ -48,7 +48,7 @@ couchDB.recreate! if override # tworze baze na nowo
 
 puts "Rozpoczynam kopiowanie..."
 sleep(3)
-coll.find(nil,{:limit => 20}).each do |item|
+coll.find().each do |item|
   item.delete("_id") # usuwam pole _id
   puts "Skopiowano: " << couchDB.save_doc(item)["id"]
 end
