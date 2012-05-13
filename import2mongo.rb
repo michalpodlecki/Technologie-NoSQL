@@ -36,6 +36,7 @@ end
 
 puts "[Settings]"
 puts "port:\t\t#{options["-p"]}\ndatabase:\t#{options["-d"]}\ncollection:\t#{options["-c"]}"
+puts "-------------------------------------------------"
 puts
 
 connection = Mongo::Connection.new("localhost",options["-p"])

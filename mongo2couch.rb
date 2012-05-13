@@ -47,11 +47,22 @@ couchDB = CouchRest.database!("http://localhost:#{couchPort}/" + dbName)
 couchDB.recreate! if override # tworze baze na nowo 
 
 puts "Rozpoczynam kopiowanie..."
-sleep(3)
-coll.find().each do |item|
-  item.delete("_id") # usuwam pole _id
-  puts "Skopiowano: " << couchDB.save_doc(item)["id"]
+offset = 1
+limit = 50000
+count = coll.count
+while offset * limit - limit < count do
+  jsons = coll.find(nil,{:limit => limit, :skip => (offset * limit - limit)}).to_a
+  jsons.collect do |item|
+    item.delete("_id") # usuwam pole _id
+    # puts "Skopiowano: " << couchDB.save_doc(item)["id"]
+  end
+  couchDB.bulk_save(jsons)
+  puts "."
+  offset += 1
 end
+
+
 puts "Kopiowanie zakonczone."
 puts
 puts "Baze mozesz sprawdzic pod adresem: http://localhost:#{couchPort}/_utils/database.html?#{dbName}"
+puts
