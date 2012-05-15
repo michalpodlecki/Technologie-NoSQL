@@ -4,7 +4,7 @@ require "couchrest"
 
 if ARGV[0] == "-h" || ARGV[0] == "--help" || ARGV.size < 4 then
   puts "\nWywolanie skryptu:\n"
-  puts "    > ruby #{__FILE__} mongodb_port mongodb_database mongodb_collection couchdb_port[ couchdb_database[ --override]]"
+  puts "    > ruby #{__FILE__} mongodb_port mongodb_database mongodb_collection couchdb_port [couchdb_database [--override]]"
   puts
   puts "Objasnienia:"
   puts "    couchdb_database\tnazwa bazy CouchDB, do ktorej przekopiowane zostana dane"
@@ -48,16 +48,17 @@ couchDB.recreate! if override # tworze baze na nowo
 
 puts "Rozpoczynam kopiowanie..."
 offset = 1
-limit = 50000
+batch_size = 1000
 count = coll.count
-while offset * limit - limit < count do
-  jsons = coll.find(nil,{:limit => limit, :skip => (offset * limit - limit)}).to_a
+while offset * batch_size - batch_size < count do
+  jsons = coll.find(nil,{:limit => batch_size, :skip => (offset * batch_size - batch_size)}).to_a
   jsons.collect do |item|
     item.delete("_id") # usuwam pole _id
     # puts "Skopiowano: " << couchDB.save_doc(item)["id"]
   end
   couchDB.bulk_save(jsons)
-  puts "."
+  progress = ((offset.to_f * batch_size)/count) * 100
+  puts "przekopiowano " << progress.round(1).to_s << "%"
   offset += 1
 end
 
