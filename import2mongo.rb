@@ -3,7 +3,7 @@ require "json"
 
 if ARGV[0] == "-h" || ARGV[0] == "--help" || ARGV.size == 0 then
   puts "\nWywolanie skryptu:\n"
-  puts "  > ruby #{__FILE__} json_file [-p port][ -d database][ -c collection]"
+  puts "  > ruby #{__FILE__} json_file [-p port] [-d database] [-c collection]"
   puts
   exit
 end
@@ -53,6 +53,7 @@ file = File.new filename
 puts "Import danych w toku..."
 
 file.each_line do |line|
+  next if not line =~ /^\[/
   line = line[1...-1]
   arrayOfJSONs = []
   arrayOfJSONs = line.split(/}, /)
@@ -65,7 +66,7 @@ file.each_line do |line|
     json = JSON.parse(value)
     coll.insert(json)
     index += 1
-    break if index == 5000
+    #break if index == 5000
   end
 end
 
