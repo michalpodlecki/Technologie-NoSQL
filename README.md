@@ -41,3 +41,9 @@ MapReduce
 Plik `mapreduce.js`. Dla każdego reżysera zliczane są wszystkie głosy oddane na  wyreżyserowane przez niego filmy dostępne w kolekcji, liczba filmów oraz średnia oddanych głosów. Jest to treściwe podsumowanie twórczości.
 
 Obliczenia wywołujemy poleceniem: `mongo mapreduce.js --shell`. Wyniki możemy obejrzeć wpisując w konsoli mongo: `db.directors.find()`.
+
+Przykład:
+
+`db.directors.find({_id : /norris/i})
+
+{ "_id" : "Aaron Norris", "value" : { "votes" : 3138, "movies" : 5, "rate" : 5.64 } }`

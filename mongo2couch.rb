@@ -50,6 +50,7 @@ puts "Rozpoczynam kopiowanie..."
 offset = 1
 batch_size = 1000
 count = coll.count
+startTime = Time.new.to_i
 while offset * batch_size - batch_size < count do
   jsons = coll.find(nil,{:limit => batch_size, :skip => (offset * batch_size - batch_size)}).to_a
   jsons.collect do |item|
@@ -61,9 +62,10 @@ while offset * batch_size - batch_size < count do
   puts "przekopiowano " << progress.round(1).to_s << "%"
   offset += 1
 end
-
+endTime = Time.new.to_i
 
 puts "Kopiowanie zakonczone."
+puts "Czas wykonywania: #{(endTime-startTime)} sekund(y)"
 puts
 puts "Baze mozesz sprawdzic pod adresem: http://localhost:#{couchPort}/_utils/database.html?#{dbName}"
 puts
