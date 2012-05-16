@@ -44,6 +44,6 @@ Obliczenia wywołujemy poleceniem: `mongo mapreduce.js --shell`. Wyniki możemy 
 
 Przykład:
 
-`db.directors.find({_id : /norris/i})
+`db.directors.find({_id : /norris/i})`
 
-{ "_id" : "Aaron Norris", "value" : { "votes" : 3138, "movies" : 5, "rate" : 5.64 } }`
+`{ "_id" : "Aaron Norris", "value" : { "votes" : 3138, "movies" : 5, "rate" : 5.64 } }`
