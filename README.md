@@ -43,7 +43,6 @@ Plik `mapreduce.js`. Dla każdego reżysera zliczane są wszystkie głosy oddane
 Obliczenia wywołujemy poleceniem: `mongo mapreduce.js --shell`. Wyniki możemy obejrzeć wpisując w konsoli mongo: `db.directors.find()`.
 
 Przykład:
-
 `db.directors.find({_id : /norris/i})`
-
+Rezultat:
 `{ "_id" : "Aaron Norris", "value" : { "votes" : 3138, "movies" : 5, "rate" : 5.64 } }`
