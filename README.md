@@ -49,3 +49,7 @@ Przykład:
 Rezultat:
 
 `{ "_id" : "Aaron Norris", "value" : { "votes" : 3138, "movies" : 5, "rate" : 5.64 } }`
+
+## Użyteczne informacje
+
+* [Transferring from MongoDB to CouchDB](http://lukeberndt.com/2011/transferring-from-mongodb-to-couchdb/)
