@@ -33,12 +33,12 @@ Repozytorium na potrzeby laboratorium.
 
      `Rozmiar bazy: 221.4 MB`
 
- Rezultat mówi sam za siebie, kopiowanie wsadowe (hurtowe) rządzi.
+ Rezultat mówi sam za siebie, kopiowanie wsadowe (hurtowe) deklasuje swojego przeciwnika.
 
 MapReduce
 ---------
 
-Plik `mapreduce.js`. Dla każdego reżysera zliczane są wszystkie głosy oddane na  wyreżyserowane przez niego filmy dostępne w kolekcji, liczba filmów oraz średnia oddanych głosów. Jest to treściwe podsumowanie twórczości.
+Plik `mapreduce.js`. Dla każdego reżysera zliczane są wszystkie głosy oddane na wyreżyserowane przez niego filmy dostępne w kolekcji, liczba filmów oraz średnia oddanych głosów. Jest to treściwe podsumowanie twórczości.
 
 Obliczenia wywołujemy poleceniem: `mongo mapreduce.js --shell`. Wyniki możemy obejrzeć wpisując w konsoli mongo: `db.directors.find()`.
 
